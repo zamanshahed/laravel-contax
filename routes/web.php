@@ -24,3 +24,6 @@ Route::get('/file/upload', [FileUploadController::class, 'index']);
 
 //file group
 Route::get('/file/group', [FileGroupController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
