@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class FileUploadController extends Controller
 {
     public function index(){
-        echo "File Upload Controller";
+        return view('file.upload.index');
     }
 }

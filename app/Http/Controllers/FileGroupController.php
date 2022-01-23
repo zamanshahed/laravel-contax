@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class FileGroupController extends Controller
 {
     public function index(){
-        echo "File Group Controller";
+        return view('file.group.index');
     }
 }
