@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileGroupController;
 use App\Http\Controllers\FileUploadController;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,11 @@ Route::get('/file/upload', [FileUploadController::class, 'index']);
 
 //file group
 Route::get('/file/group', [FileGroupController::class, 'index']);
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+
+    //get all users from DB
+    $users = User::all();
+    return view('dashboard', compact('users'));
 })->name('dashboard');
