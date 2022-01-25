@@ -18,13 +18,13 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('/file/upload') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Upload Files') }}
+                    <x-jet-nav-link href="{{ route('upload') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Upload File') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('/file/group') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('group') }}" :active="request()->routeIs('dashboard')">
                         {{ __('File Groups') }}
                     </x-jet-nav-link>
                 </div>

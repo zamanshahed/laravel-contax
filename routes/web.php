@@ -21,11 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//file upload
-Route::get('/file/upload', [FileUploadController::class, 'index']);
+//upload file
+Route::get('/file/upload', [FileUploadController::class, 'index'])->name('upload');
 
 //file group
-Route::get('/file/group', [FileGroupController::class, 'index']);
+Route::get('/file/group', [FileGroupController::class, 'index'])->name('group');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
