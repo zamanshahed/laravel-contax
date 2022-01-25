@@ -20,17 +20,16 @@
                     </div>
                     <div class="card-body">
                         {{-- form input starts --}}
-                        <form>
+                        <form action="{{route('file.process')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Name </label>
-                                <input type="text" class="form-control" placeholder="Enter a name">
-                                
+                                <input type="text" class="form-control" name="name" placeholder="Enter a name">                                
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Choose a File to upload</label>
-                                <input type="file" class="form-control" >
-                            </div>
-                            
+                                <input type="file" name="target_file" class="form-control" >
+                            </div>                            
                             <button type="submit" class="btn btn-outline-primary">Upload</button>
                         </form>
                     </div>

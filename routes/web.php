@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 //upload file
 Route::get('/file/upload', [FileUploadController::class, 'index'])->name('upload');
+//upload process
+Route::post('/file/process', [FileUploadController::class, 'uploadFile'])->name('file.process');
 
 //file group
 Route::get('/file/group', [FileGroupController::class, 'index'])->name('group');
