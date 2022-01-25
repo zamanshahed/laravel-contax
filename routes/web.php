@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileGroupController;
 use App\Http\Controllers\FileUploadController;
 use App\Models\User;
+use App\Models\FileGroup;
+use App\Models\BlockList;
 
 
 /*
@@ -17,22 +19,23 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('welcome');
 });
 
 //upload file
-Route::get('/file/upload', [FileUploadController::class, 'index'])->name('upload');
+Route::middleware(['auth:sanctum', 'verified'])->get('/file/upload', [FileUploadController::class, 'index'])->name('upload');
 //upload process
-Route::post('/file/process', [FileUploadController::class, 'uploadFile'])->name('file.process');
+Route::middleware(['auth:sanctum', 'verified'])->post('/file/process', [FileUploadController::class, 'uploadFile'])->name('file.process');
 
 //file group
-Route::get('/file/group', [FileGroupController::class, 'index'])->name('group');
+Route::middleware(['auth:sanctum', 'verified'])->get('/file/group', [FileGroupController::class, 'index'])->name('group');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-
     //get all users from DB
     $users = User::all();
-    return view('dashboard', compact('users'));
+    $groups = FileGroup::all();
+    $block_list = BlockList::all();
+    return view('dashboard', compact('users', 'groups', 'block_list'));
 })->name('dashboard');
