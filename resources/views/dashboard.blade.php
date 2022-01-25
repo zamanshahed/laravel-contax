@@ -3,8 +3,15 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-        <b style="float: right">Total Users: <span class="badge bg-primary">{{ count($users) }}</span> </b>
+
+        <b style="float: right">
+            Total Users: <span class="badge bg-primary">{{ count($users) }}</span> 
+            Total Files: <span class="badge bg-primary">{{ count($users) }}</span> 
+            Total Groups: <span class="badge bg-primary">{{ count($users) }}</span>
+        </b>
         <br>
+        
+
     </x-slot>
 
     <div class="py-12">
