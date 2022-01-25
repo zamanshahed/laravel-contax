@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Group;
+use App\Models\FileGroup;
 
 class FileUploadController extends Controller
 {
@@ -32,8 +32,9 @@ class FileUploadController extends Controller
          $target_file->move($up_location, $file_name);
  
          //save in db
-         Group::insert([             
-             'name' => $final_file,
+         FileGroup::insert([             
+             'file_name' => $file_name,
+             'file_path' => $final_file,
          ]);
 
         //action after uploading a file
